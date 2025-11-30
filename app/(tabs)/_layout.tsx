@@ -1,33 +1,51 @@
 import { Tabs } from 'expo-router';
-import React from 'react';
-
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const insets = useSafeAreaInsets();
 
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
+        tabBarActiveTintColor: '#ff0000',
+        tabBarInactiveTintColor: '#666',
+        tabBarStyle: {
+          backgroundColor: '#1a1a1a',
+          borderTopWidth: 2,
+          borderTopColor: '#ff0000',
+          height: 60 + insets.bottom,
+          paddingBottom: insets.bottom,
+        },
+        headerStyle: {
+          backgroundColor: '#1a1a1a',
+          borderBottomWidth: 2,
+          borderBottomColor: '#ff0000',
+        },
+        headerTintColor: '#fff',
+        headerTitleStyle: {
+          fontWeight: 'bold',
+          fontSize: 20,
+        }
+      }}
+    >
+      {/* Cada una de las pestañas que nos llevarán a las páginas indicadas */}
       <Tabs.Screen
-        name="index"
+        name="home"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
+          title: 'Inicio',
+        }}
+      />
+      
+      <Tabs.Screen
+        name="exercises"
+        options={{
+          title: 'Ejercicios',
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="routines"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
+          title: 'Rutinas'
         }}
       />
     </Tabs>
