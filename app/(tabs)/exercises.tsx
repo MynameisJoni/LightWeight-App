@@ -34,7 +34,7 @@ export default function ExercisesTab(){
         cargarEjercicios();
     }, []);
 
-    // obtener los ejercicios d ela API
+    // obtener los ejercicios de la API
     const cargarEjercicios = async () => {
         try{
             setLoading(true);

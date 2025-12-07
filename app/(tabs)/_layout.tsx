@@ -35,7 +35,6 @@ export default function TabLayout() {
           title: 'Inicio',
         }}
       />
-      
       <Tabs.Screen
         name="exercises"
         options={{

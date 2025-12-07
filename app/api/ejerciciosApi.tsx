@@ -57,7 +57,7 @@ export async function postEjercicios(ejercicio: string, tipo: string){
     };
 }
 
-// PUT
+// PATCH - PUT no le gusta a Appwrite =(
 export async function putEjercicios(id: string, ejercicio: string, tipo: string){
     const response = await fetch(`${URL}/${id}`, {
         method: 'PATCH', // cosas de appwrite que no usa PUT
